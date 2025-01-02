@@ -9,17 +9,45 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.gray
+                .opacity(0.7)
+                .ignoresSafeArea()
+            Grid {
+                GridRow {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.blue)
+                        .gridCellColumns(2)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.blue)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.blue)
+                    
+                }
+                GridRow {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.red)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.green)
+                        .gridCellColumns(2)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.black)
+                }
+                GridRow {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.red)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.green)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.green)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.green)
+                  
+                }
+            }
+            .padding()
+            
         }
-        .padding()
-        .padding(.bottom, 200)
-    //function to show calculator view
-        
-        
         
     }
 }
@@ -27,3 +55,4 @@ struct ContentView: View {
 #Preview {
     ContentView(	)
 }
+
