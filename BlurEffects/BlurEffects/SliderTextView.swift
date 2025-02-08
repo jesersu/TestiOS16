@@ -24,7 +24,7 @@ struct SliderTextView: View {
 }
 
 #Preview {
-    SilderTextView(
+    SliderTextView(
         value: .constant(15),
         text: "Red Blur Effect",
         min: 0,

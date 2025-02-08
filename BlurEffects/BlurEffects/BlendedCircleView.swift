@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct BlendedCircleView: View {
+    let color: Color;
+    let CircleRadius: Double;
+    let offsetX: Double;
+    let offsetY: Double;
+    let blur: Double;
+    let blendMode: BlendMode;
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Circle()
+            .fill(color)
+            .frame(width: CircleRadius, height: CircleRadius)
+            .offset(x: offsetX, y: offsetY)
+            .blur(radius: blur)
     }
 }
 
 #Preview {
-    BlendedCircleView()
+    BlendedCircleView(
+        color: .blue,
+        CircleRadius: 50,
+        offsetX: 100,
+        offsetY: -100,
+        blur: 10,
+        blendMode: .normal
+    )
 }
