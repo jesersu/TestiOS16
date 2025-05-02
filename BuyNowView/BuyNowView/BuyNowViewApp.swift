@@ -11,7 +11,7 @@ import SwiftUI
 struct BuyNowViewApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(price: 10.0, discontPercentage: 1)
         }
     }
 }
