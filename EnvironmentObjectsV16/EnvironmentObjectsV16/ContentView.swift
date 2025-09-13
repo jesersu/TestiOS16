@@ -6,14 +6,40 @@
 //
 
 import SwiftUI
-
+@Observable
+class PersonViewModel{
+    var name: String = "Jesus"
+    var lastName: String = "Chapi"
+    var fullName: String {
+         "\(name) \(lastName)"
+    }
+    func changeName(){
+        let names: [(String, String)] =
+        [("Jesus", "Chapi"),
+        ("Darwin", "Quispe"),
+         ("Dysan", "Chura"),
+         ("Victor", "Cahui"),
+        ]
+        
+        let randomName = names.randomElement() ?? ("","")
+        self.name = randomName.0
+        self.lastName = randomName.1
+    }
+}
 struct ContentView: View {
+    @Environment(PersonViewModel.self) private var personViewModel: PersonViewModel
     var body: some View {
+        @Bindable var personViewModel = personViewModel
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+         
+            Text("\(personViewModel.fullName)")
+            TextField("Name", text: $personViewModel.name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+            Button("Change Name" , action: {
+                personViewModel.changeName()
+            })
         }
         .padding()
     }
@@ -21,4 +47,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(PersonViewModel())
 }

@@ -49,7 +49,7 @@ struct BlurEffectDemo: View {
                 )
                 
                 BlendedCircleView(
-                    color: .blue,
+                    color: .yellow,
                     CircleRadius: 100,
                     offsetX: 100,
                     offsetY: -80,
@@ -82,7 +82,7 @@ struct BlurEffectDemo: View {
                     text: "Blue Blur Radius",
                     min: 0,
                     max: 50,
-                    color: .blue
+                    color: .yellow
                 )
             }
             
